@@ -8,15 +8,8 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class UploadUtil {
-    public static void uploadFile(File file) {
-        StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, stringSelection);
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public static void uploadFile() {
+
         Robot robot = null;
         try {
             robot = new Robot();

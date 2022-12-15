@@ -16,7 +16,6 @@ import java.util.Objects;
 public class InterestsCard extends Form {
     private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '2 / 4')]";
     private static final String XPATH_INTERESTS_CHECK_BOXES = "//div[contains(@class,'list__item')]//label";
-    private static final File file = new File(GetProperties.readFromDataConfig("avatarPictureFile"));
 
 
     private final IButton uploadAvatarButton = getElementFactory().getButton(By.xpath("//a[contains(@class, 'upload-button')]"), "UploadAvatarButton");
@@ -58,7 +57,7 @@ public class InterestsCard extends Form {
 
     public void uploadImage() {
         uploadAvatarButton.clickAndWait();
-        UploadUtil.uploadFile(file);
+        UploadUtil.uploadFile();
     }
 
     public void goToNextCard() {

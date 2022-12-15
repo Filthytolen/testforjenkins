@@ -36,11 +36,12 @@ public class CardsPage extends Form {
         return helpFormTextBox.state().isDisplayed();
     }
 
-    public void waitCookiesBanner() {
+    private void waitCookiesBanner() {
         cookiesBannerTextBox.state().waitForDisplayed();
     }
 
     public void acceptCookies() {
+        waitCookiesBanner();
         acceptCookiesButton.clickAndWait();
     }
 

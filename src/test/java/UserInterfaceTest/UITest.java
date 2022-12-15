@@ -51,7 +51,6 @@ public class UITest extends BaseTest {
         Assert.assertTrue(homePage.state().waitForDisplayed(), "Home page is not displayed");
 
         homePage.clickCardsLinkPage();
-        cardsPage.waitCookiesBanner();
         cardsPage.acceptCookies();
 
         Assert.assertFalse(cardsPage.isCookiesAccepted(), "Cookies not accepted yet");
