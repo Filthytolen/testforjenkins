@@ -1,11 +1,7 @@
 package UserInterfaceTask.Utils;
 
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 public class UploadUtil {
     public static void uploadFile() {
