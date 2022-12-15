@@ -12,7 +12,7 @@ public abstract class BaseTest {
     protected static final ISettingsFile DATA_TEST = new JsonSettingsFile("DataTest.json");
     protected static final String url = DATA_TEST.getValue("/MainPage").toString();
 
-    private Browser browser;
+    private Browser browser = null;
 
     @BeforeMethod
     public void setup() {
@@ -23,12 +23,14 @@ public abstract class BaseTest {
 
     @AfterSuite
     public void cleanup() {
-//        if (browser.isStarted()) {
-//            browser.quit();
-//        }
+        if (browser.isStarted()) {
+            browser.quit();
+        }
     }
 
     protected Browser getBrowser() {
-        return AqualityServices.getBrowser();
+        if (browser == null)
+            browser = AqualityServices.getBrowser();
+        return browser;
     }
 }
