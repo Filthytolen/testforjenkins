@@ -1,16 +1,13 @@
 package UserInterfaceTest;
 
 import UserInterfaceTask.Utils.RandomUtils;
-import UserInterfaceTask.pages.CardsPage;
-import UserInterfaceTask.pages.HomePage;
-import UserInterfaceTask.pages.InterestsCard;
-import UserInterfaceTask.pages.LoginCard;
+import UserInterfaceTask.pages.*;
 import UserInterfaceTest.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class UITest extends BaseTest {
-    private final CardsPage cardsPage = new CardsPage();
+    private final BaseCard baseCard = new BaseCard();
 
     @Test
     public void firstCase() {
@@ -21,22 +18,20 @@ public class UITest extends BaseTest {
 
         homePage.clickCardsLinkPage();
 
-        Assert.assertTrue(cardsPage.getNumberPage().contains("1"), "Card \"1\" was not opened");
+        Assert.assertTrue(baseCard.getNumberPage().contains("1"), "Card \"1\" was not opened");
 
-        LoginCard loginCard = new LoginCard();
 
-        loginCard.fillLoginForm(RandomUtils.generateEmail(), RandomUtils.generatePassword());
-        loginCard.goToNextCardPage();
+        baseCard.switchToLoginCard().fillLoginForm(RandomUtils.generateEmail(), RandomUtils.generatePassword());
+        baseCard.switchToLoginCard().goToNextCardPage();
 
-        Assert.assertTrue(cardsPage.getNumberPage().contains("2"), "Card \"2\" was not opened");
+        Assert.assertTrue(baseCard.getNumberPage().contains("2"), "Card \"2\" was not opened");
 
-        InterestsCard interestsCard = new InterestsCard();
-        interestsCard.unselectAllInterests();
-        interestsCard.selectRandomInterests((Integer) DATA_TEST.getValue("/interestsCount"));
-        interestsCard.uploadImage();
-        interestsCard.goToNextCard();
+        baseCard.switchToInterestsCard().unselectAllInterests();
+        baseCard.switchToInterestsCard().selectRandomInterests((Integer) DATA_TEST.getValue("/interestsCount"));
+        baseCard.switchToInterestsCard().uploadImage();
+        baseCard.switchToInterestsCard().goToNextCard();
 
-        Assert.assertTrue(cardsPage.getNumberPage().contains("3"), "Card \"3\" was not opened");
+        Assert.assertTrue(baseCard.getNumberPage().contains("3"), "Card \"3\" was not opened");
     }
 
     @Test
@@ -47,9 +42,9 @@ public class UITest extends BaseTest {
         Assert.assertTrue(homePage.state().waitForDisplayed(), "Home page is not displayed");
 
         homePage.clickCardsLinkPage();
-        cardsPage.hideHelpWindowForm();
+        baseCard.hideHelpWindowForm();
 
-        Assert.assertTrue(cardsPage.isHelpFormHidden(), "Help farm was not hidden");
+        Assert.assertTrue(baseCard.isHelpFormHidden(), "Help farm was not hidden");
     }
 
     @Test
@@ -60,9 +55,9 @@ public class UITest extends BaseTest {
         Assert.assertTrue(homePage.state().waitForDisplayed(), "Home page is not displayed");
 
         homePage.clickCardsLinkPage();
-        cardsPage.acceptCookies();
+        baseCard.acceptCookies();
 
-        Assert.assertFalse(cardsPage.isCookiesAccepted(), "Cookies not accepted yet");
+        Assert.assertFalse(baseCard.isCookiesAccepted(), "Cookies not accepted yet");
     }
 
     @Test
@@ -75,7 +70,7 @@ public class UITest extends BaseTest {
 
         homePage.clickCardsLinkPage();
 
-        Assert.assertEquals(cardsPage.getTimerValue(), DATA_TEST.getValue("/timer").toString(), "Timer was not started at 00");
+        Assert.assertEquals(baseCard.getTimerValue(), DATA_TEST.getValue("/timer").toString(), "Timer was not started at 00");
 
 
     }

@@ -7,6 +7,10 @@ import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class BaseCard extends Form {
+
+    private final LoginCard loginCard = new LoginCard();
+    private final InterestsCard interestsCard = new InterestsCard();
+
     private final ILabel pageIndicatorLabel = getElementFactory().getLabel(By.xpath("//div[contains(@class, 'page-indicator')]"),
             "PageIndicator");
     private final ILabel timerLabel = getElementFactory().getLabel(By.xpath("//div[contains(@class,'timer')]"),
@@ -25,13 +29,13 @@ public class BaseCard extends Form {
     }
 
 
-//    public BaseCard switchToLoginCard() {
-//        return new LoginCard();
-//    }
+    public LoginCard switchToLoginCard() {
+        return this.loginCard;
+    }
 
-//    public BaseCard switchToInterestsCard() {
-//        return new InterestsCard();
-//    }
+    public InterestsCard switchToInterestsCard() {
+        return this.interestsCard;
+    }
 
 
     public String getNumberPage() {

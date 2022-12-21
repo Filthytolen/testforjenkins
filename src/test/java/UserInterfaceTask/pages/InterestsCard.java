@@ -6,6 +6,7 @@ import UserInterfaceTask.Utils.UploadUtil;
 import aquality.selenium.elements.ElementType;
 import aquality.selenium.elements.Label;
 import aquality.selenium.elements.interfaces.IButton;
+import aquality.selenium.elements.interfaces.ILink;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
@@ -20,7 +21,7 @@ public class InterestsCard extends Form {
     private static File file = new File(GetProperties.readFromDataConfig("avatarPictureFile"));
 
     private final IButton uploadAvatarButton = getElementFactory().getButton(By.xpath("//a[contains(@class, 'upload-button')]"), "UploadAvatarButton");
-    private final IButton nextButton = getElementFactory().getButton(By.xpath("//button[contains(text(), 'Next')]"), "nextButton");
+    private final ILink nextButton = getElementFactory().getLink(By.xpath("//button[contains(text(), 'Next')]"), "nextButton");
 
 
     public InterestsCard() {
