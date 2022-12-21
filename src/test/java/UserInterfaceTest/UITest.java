@@ -4,32 +4,35 @@ import UserInterfaceTask.Utils.RandomUtils;
 import UserInterfaceTask.pages.CardsPage;
 import UserInterfaceTask.pages.HomePage;
 import UserInterfaceTask.pages.InterestsCard;
+import UserInterfaceTask.pages.LoginCard;
 import UserInterfaceTest.base.BaseTest;
-import UserInterfaceTest.base.loginAuthSteps.LoginCardSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class UITest extends BaseTest {
-    private final HomePage homePage = new HomePage();
     private final CardsPage cardsPage = new CardsPage();
-    private final LoginCardSteps loginCardSteps = new LoginCardSteps();
-    private final InterestsCard interestsCard = new InterestsCard();
-
 
     @Test
     public void firstCase() {
+        getBrowser().goTo(url);
+        HomePage homePage = new HomePage();
+
         Assert.assertTrue(homePage.state().waitForDisplayed(), "Home page is not displayed");
 
         homePage.clickCardsLinkPage();
 
         Assert.assertTrue(cardsPage.getNumberPage().contains("1"), "Card \"1\" was not opened");
 
-        loginCardSteps.doRequiredSteps(RandomUtils.generateEmail(), RandomUtils.generatePassword());
+        LoginCard loginCard = new LoginCard();
+
+        loginCard.fillLoginForm(RandomUtils.generateEmail(), RandomUtils.generatePassword());
+        loginCard.goToNextCardPage();
 
         Assert.assertTrue(cardsPage.getNumberPage().contains("2"), "Card \"2\" was not opened");
 
+        InterestsCard interestsCard = new InterestsCard();
         interestsCard.unselectAllInterests();
-        interestsCard.selectRandomInterests(3);
+        interestsCard.selectRandomInterests((Integer) DATA_TEST.getValue("/interestsCount"));
         interestsCard.uploadImage();
         interestsCard.goToNextCard();
 
@@ -38,6 +41,9 @@ public class UITest extends BaseTest {
 
     @Test
     public void secondCase() {
+        getBrowser().goTo(url);
+        HomePage homePage = new HomePage();
+
         Assert.assertTrue(homePage.state().waitForDisplayed(), "Home page is not displayed");
 
         homePage.clickCardsLinkPage();
@@ -48,6 +54,9 @@ public class UITest extends BaseTest {
 
     @Test
     public void thirdCase() {
+        getBrowser().goTo(url);
+        HomePage homePage = new HomePage();
+
         Assert.assertTrue(homePage.state().waitForDisplayed(), "Home page is not displayed");
 
         homePage.clickCardsLinkPage();
@@ -58,10 +67,16 @@ public class UITest extends BaseTest {
 
     @Test
     public void fourthCase() {
+        getBrowser().goTo(url);
+
+        HomePage homePage = new HomePage();
+
         Assert.assertTrue(homePage.state().waitForDisplayed(), "Home page is not displayed");
 
         homePage.clickCardsLinkPage();
 
         Assert.assertEquals(cardsPage.getTimerValue(), DATA_TEST.getValue("/timer").toString(), "Timer was not started at 00");
+
+
     }
 }

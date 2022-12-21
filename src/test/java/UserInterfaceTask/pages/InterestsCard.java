@@ -14,12 +14,13 @@ import java.util.List;
 import java.util.Objects;
 
 public class InterestsCard extends Form {
-    private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '2 / 4')]";
+    private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '2 / ')]";
     private static final String XPATH_INTERESTS_CHECK_BOXES = "//div[contains(@class,'list__item')]//label";
 
+    private static File file = new File(GetProperties.readFromDataConfig("avatarPictureFile"));
 
     private final IButton uploadAvatarButton = getElementFactory().getButton(By.xpath("//a[contains(@class, 'upload-button')]"), "UploadAvatarButton");
-    private final IButton nextButton = getElementFactory().getButton(By.xpath("//button[contains(text(), 'Next')]"), "button next");
+    private final IButton nextButton = getElementFactory().getButton(By.xpath("//button[contains(text(), 'Next')]"), "nextButton");
 
 
     public InterestsCard() {
@@ -57,7 +58,7 @@ public class InterestsCard extends Form {
 
     public void uploadImage() {
         uploadAvatarButton.clickAndWait();
-        UploadUtil.uploadFile();
+        UploadUtil.uploadFile(file);
     }
 
     public void goToNextCard() {

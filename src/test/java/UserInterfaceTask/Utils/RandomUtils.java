@@ -12,7 +12,7 @@ public class RandomUtils {
     private static final Faker faker = new Faker();
 
     public static String generateEmail() {
-        return fakeValuesService.bothify("S????##");
+        return fakeValuesService.bothify("S????@##??.??");
     }
 
     public static String generatePassword() {

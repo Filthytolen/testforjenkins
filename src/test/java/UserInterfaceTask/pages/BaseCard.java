@@ -6,7 +6,7 @@ import aquality.selenium.elements.interfaces.ITextBox;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
-public class CardsPage extends Form {
+public class BaseCard extends Form {
     private final ILabel pageIndicatorLabel = getElementFactory().getLabel(By.xpath("//div[contains(@class, 'page-indicator')]"),
             "PageIndicator");
     private final ILabel timerLabel = getElementFactory().getLabel(By.xpath("//div[contains(@class,'timer')]"),
@@ -20,9 +20,19 @@ public class CardsPage extends Form {
     private final ITextBox cookiesBannerTextBox = getElementFactory().getTextBox(By.xpath("//div[contains(@class,'cookies'])"),
             "cookies banner");
 
-    public CardsPage() {
+    public BaseCard() {
         super(By.xpath("//DIV[contains(@class, 'timer')]"), "TimerTextBox");
     }
+
+
+//    public BaseCard switchToLoginCard() {
+//        return new LoginCard();
+//    }
+
+//    public BaseCard switchToInterestsCard() {
+//        return new InterestsCard();
+//    }
+
 
     public String getNumberPage() {
         return pageIndicatorLabel.getText();
@@ -53,4 +63,3 @@ public class CardsPage extends Form {
         return timerLabel.getText();
     }
 }
-

@@ -13,7 +13,7 @@ import java.util.List;
 import static aquality.selenium.elements.ElementType.TEXTBOX;
 
 public class LoginCard extends Form {
-    private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '1 / 4')]";
+    private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '1 / ')]";
 
 
     private final ITextBox passwordTextBox = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder, 'Password')]"),
@@ -50,8 +50,8 @@ public class LoginCard extends Form {
         emailTextBox.clearAndType(email);
     }
 
-    public void enterDomain(String email) {
-        domainTextBox.clearAndType(email);
+    public void enterDomain(String domain) {
+        domainTextBox.clearAndType(domain);
     }
 
     public void goToNextCardPage() {
@@ -59,9 +59,23 @@ public class LoginCard extends Form {
     }
 
     public void selectDomain() {
+        clickDropDownMenu();
         List<ITextBox> domains =
                 getElementFactory().findElements(By.className("dropdown__list-item"), "Domains", TEXTBOX);
         domains.get(RandomUtils.generateRandomNumber(1, domains.size())).click();
+    }
+
+    public void fillLoginForm(String email, String password) {
+        fillFieldWithRandomData(email, password);
+        selectDomain();
+        checkCheckBoxAgreement();
+    }
+
+    private void fillFieldWithRandomData(String email, String password) {
+        enterPassword(password);
+        enterEmail(email);
+        System.out.println(email.substring(email.indexOf("@") + 1));
+        enterDomain(email.substring(email.indexOf("@") + 1));
     }
 
 }

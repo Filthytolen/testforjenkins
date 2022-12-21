@@ -16,7 +16,6 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        getBrowser().goTo(url);
         getBrowser().maximize();
         getBrowser().waitForPageToLoad();
     }
