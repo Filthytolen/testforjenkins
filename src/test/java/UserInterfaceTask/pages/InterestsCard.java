@@ -21,7 +21,6 @@ public class InterestsCard extends Form {
     private static File file = new File(GetProperties.readFromDataConfig("avatarPictureFile"));
 
     private final IButton uploadAvatarButton = getElementFactory().getButton(By.xpath("//a[contains(@class, 'upload-button')]"), "UploadAvatarButton");
-    private final ILink nextButton = getElementFactory().getLink(By.xpath("//button[contains(text(), 'Next')]"), "nextButton");
 
 
     public InterestsCard() {
@@ -62,7 +61,4 @@ public class InterestsCard extends Form {
         UploadUtil.uploadFile(file);
     }
 
-    public void goToNextCard() {
-        nextButton.clickAndWait();
-    }
 }

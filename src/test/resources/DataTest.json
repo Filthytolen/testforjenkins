@@ -1,5 +1,8 @@
 {
   "MainPage": "https://userinyerface.com",
   "timer": "00:00:00",
-  "interestsCount": 3
+  "interestsCount": 3,
+  "LoginCardPageNumber": "1",
+  "InterestsCardPageNumber": "2",
+  "PersonalDetailsCardPageNumber": "3"
 }

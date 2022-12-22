@@ -12,7 +12,7 @@ import java.util.List;
 
 import static aquality.selenium.elements.ElementType.TEXTBOX;
 
-public class LoginCard extends Form {
+public class LoginCard extends BaseCard {
     private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '1 / ')]";
 
 
@@ -26,8 +26,6 @@ public class LoginCard extends Form {
             "CheckBoxAgreement");
     private final IComboBox dropDownMenu = getElementFactory().getComboBox(By.xpath("//div[contains(@class, 'dropdown__field')]"),
             "dropDownMenu");
-    private final ILink nextCardLink =
-            getElementFactory().getLink(By.className("button--secondary"), "NextCardButton");
 
     public LoginCard() {
         super(By.xpath(XPATH_CARD_NAME_TEXT),
@@ -52,10 +50,6 @@ public class LoginCard extends Form {
 
     public void enterDomain(String domain) {
         domainTextBox.clearAndType(domain);
-    }
-
-    public void goToNextCardPage() {
-        nextCardLink.clickAndWait();
     }
 
     public void selectDomain() {
