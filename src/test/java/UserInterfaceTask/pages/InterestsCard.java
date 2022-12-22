@@ -14,11 +14,12 @@ import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
-public class InterestsCard extends Form {
-    private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '2 / ')]";
+public class InterestsCard extends BaseCard {
+    private static final String XPATH_CARD_NAME_TEXT = "//DIV[contains(@class,'interests__form')]";
     private static final String XPATH_INTERESTS_CHECK_BOXES = "//div[contains(@class,'list__item')]//label";
 
-    private static File file = new File(GetProperties.readFromDataConfig("avatarPictureFile"));
+
+    private static final File file = new File(GetProperties.readFromDataConfig("avatarPictureFile"));
 
     private final IButton uploadAvatarButton = getElementFactory().getButton(By.xpath("//a[contains(@class, 'upload-button')]"), "UploadAvatarButton");
 

@@ -13,7 +13,7 @@ import java.util.List;
 import static aquality.selenium.elements.ElementType.TEXTBOX;
 
 public class LoginCard extends BaseCard {
-    private static final String XPATH_CARD_NAME_TEXT = "//div[contains(@class, 'page-indicator')][contains(text(), '1 / ')]";
+    private static final String XPATH_CARD_NAME_TEXT = "//DIV[contains(@class,'login-form__fields')]";
 
 
     private final ITextBox passwordTextBox = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder, 'Password')]"),
