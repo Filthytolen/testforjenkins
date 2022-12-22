@@ -1,13 +1,12 @@
-package UserInterfaceTask.pages;
+package UserInterfaceTask.pages.cards;
 
 import UserInterfaceTask.Utils.GetProperties;
 import UserInterfaceTask.Utils.RandomUtils;
 import UserInterfaceTask.Utils.UploadUtil;
+import UserInterfaceTask.pages.cards.BaseCard;
 import aquality.selenium.elements.ElementType;
 import aquality.selenium.elements.Label;
 import aquality.selenium.elements.interfaces.IButton;
-import aquality.selenium.elements.interfaces.ILink;
-import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 import java.io.File;

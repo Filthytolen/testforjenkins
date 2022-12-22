@@ -1,11 +1,10 @@
-package UserInterfaceTask.pages;
+package UserInterfaceTask.pages.cards;
 
 import UserInterfaceTask.Utils.RandomUtils;
+import UserInterfaceTask.pages.cards.BaseCard;
 import aquality.selenium.elements.interfaces.ICheckBox;
 import aquality.selenium.elements.interfaces.IComboBox;
-import aquality.selenium.elements.interfaces.ILink;
 import aquality.selenium.elements.interfaces.ITextBox;
-import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 import java.util.List;

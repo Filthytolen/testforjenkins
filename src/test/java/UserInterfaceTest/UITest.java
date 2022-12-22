@@ -2,6 +2,7 @@ package UserInterfaceTest;
 
 import UserInterfaceTask.Utils.RandomUtils;
 import UserInterfaceTask.pages.*;
+import UserInterfaceTask.pages.cards.CardsPage;
 import UserInterfaceTest.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;

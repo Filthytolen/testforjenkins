@@ -1,4 +1,4 @@
-package UserInterfaceTask.pages;
+package UserInterfaceTask.pages.cards;
 
 import aquality.selenium.elements.Element;
 import aquality.selenium.elements.interfaces.IButton;
