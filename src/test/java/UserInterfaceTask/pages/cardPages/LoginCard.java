@@ -1,7 +1,6 @@
-package UserInterfaceTask.pages.cards;
+package UserInterfaceTask.pages.cardPages;
 
 import UserInterfaceTask.Utils.RandomUtils;
-import UserInterfaceTask.pages.cards.BaseCard;
 import aquality.selenium.elements.interfaces.ICheckBox;
 import aquality.selenium.elements.interfaces.IComboBox;
 import aquality.selenium.elements.interfaces.ITextBox;
@@ -67,7 +66,6 @@ public class LoginCard extends BaseCard {
     private void fillFieldWithRandomData(String email, String password) {
         enterPassword(password);
         enterEmail(email);
-        System.out.println(email.substring(email.indexOf("@") + 1));
         enterDomain(email.substring(email.indexOf("@") + 1));
     }
 

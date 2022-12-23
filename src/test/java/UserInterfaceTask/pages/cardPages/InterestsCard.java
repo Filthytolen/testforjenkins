@@ -1,9 +1,8 @@
-package UserInterfaceTask.pages.cards;
+package UserInterfaceTask.pages.cardPages;
 
 import UserInterfaceTask.Utils.GetProperties;
 import UserInterfaceTask.Utils.RandomUtils;
 import UserInterfaceTask.Utils.UploadUtil;
-import UserInterfaceTask.pages.cards.BaseCard;
 import aquality.selenium.elements.ElementType;
 import aquality.selenium.elements.Label;
 import aquality.selenium.elements.interfaces.IButton;
@@ -20,6 +19,9 @@ public class InterestsCard extends BaseCard {
 
     private static final File file = new File(GetProperties.readFromDataConfig("avatarPictureFile"));
 
+
+    By checkboxesLocator = By.xpath(XPATH_INTERESTS_CHECK_BOXES);
+
     private final IButton uploadAvatarButton = getElementFactory().getButton(By.xpath("//a[contains(@class, 'upload-button')]"), "UploadAvatarButton");
 
 
@@ -29,7 +31,7 @@ public class InterestsCard extends BaseCard {
 
 
     private List<Label> getCheckBoxesList() {
-        return getElementFactory().findElements(By.xpath(XPATH_INTERESTS_CHECK_BOXES), ElementType.LABEL);
+        return getElementFactory().findElements(checkboxesLocator, ElementType.LABEL);
     }
 
     public void unselectAllInterests() {

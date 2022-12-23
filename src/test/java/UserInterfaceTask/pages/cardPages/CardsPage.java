@@ -1,15 +1,17 @@
-package UserInterfaceTask.pages.cards;
+package UserInterfaceTask.pages.cardPages;
 
 import aquality.selenium.elements.interfaces.IButton;
 import aquality.selenium.elements.interfaces.ILabel;
 import aquality.selenium.elements.interfaces.ITextBox;
+import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
-public class CardsPage extends BaseCard {
+public class CardsPage extends Form {
     private static final String XPATH_TIME_LABEL = "//div[contains(@class,'timer')]";
+
     private final LoginCard loginCard = new LoginCard();
     private final InterestsCard interestsCard = new InterestsCard();
-
+    private final PersonalDetailsCard personalDetailsCard = new PersonalDetailsCard();
 
     private final ILabel timerLabel = getElementFactory().getLabel(By.xpath(XPATH_TIME_LABEL),
             "timer");
@@ -21,6 +23,7 @@ public class CardsPage extends BaseCard {
             "helpForm");
     private final ITextBox cookiesBannerTextBox = getElementFactory().getTextBox(By.xpath("//div[contains(@class,'cookies'])"),
             "cookies banner");
+
 
     public CardsPage() {
         super(By.xpath(XPATH_TIME_LABEL), "TimerLabel");
@@ -34,6 +37,10 @@ public class CardsPage extends BaseCard {
         return this.interestsCard;
     }
 
+    public PersonalDetailsCard switchToPersonalDetailsCard() {
+        return this.personalDetailsCard;
+    }
+
     public void hideHelpWindowForm() {
         sendToBottomButton.clickAndWait();
     }
@@ -42,12 +49,8 @@ public class CardsPage extends BaseCard {
         return helpFormTextBox.state().isDisplayed();
     }
 
-    private void waitCookiesBanner() {
-        cookiesBannerTextBox.state().waitForDisplayed();
-    }
-
     public void acceptCookies() {
-        waitCookiesBanner();
+        cookiesBannerTextBox.state().waitForDisplayed();
         acceptCookiesButton.clickAndWait();
     }
 
@@ -58,5 +61,4 @@ public class CardsPage extends BaseCard {
     public String getTimerValue() {
         return timerLabel.getText();
     }
-
 }
