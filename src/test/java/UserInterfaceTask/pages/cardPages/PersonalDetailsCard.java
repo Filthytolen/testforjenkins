@@ -6,7 +6,7 @@ public class PersonalDetailsCard extends BaseCard {
     private static final String CLASS_CARD_NAME_TEXT = "personal-details__form";
 
     public PersonalDetailsCard() {
-        super(By.xpath(CLASS_CARD_NAME_TEXT),
+        super(By.className(CLASS_CARD_NAME_TEXT),
                 "CardNameText");
     }
 
