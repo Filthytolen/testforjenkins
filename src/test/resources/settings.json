@@ -17,10 +17,9 @@
         "download.default_directory": "//home//selenium//downloads"
       },
       "startArguments": [
-        "--disable-extensions",
-        "--disable-gpu",
-        "--no-sandbox",
-        "--disable-dev-shm-usage"
+        "--headless",
+        "window-size=1024,768",
+        "--no-sandbox"
       ]
     },
     "edge": {
