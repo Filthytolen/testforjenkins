@@ -15,7 +15,7 @@ public abstract class BaseTest {
 
     private Browser browser = null;
 
-    @BeforeTest
+    @BeforeMethod
     public void setup() {
         getBrowser().maximize();
         getBrowser().waitForPageToLoad();
