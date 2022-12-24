@@ -1,9 +1,8 @@
 {
-  "browserName" : "chrome",
+  "browserName": "chrome",
   "isRemote": false,
   "remoteConnectionUrl": "http://localhost:4444/wd/hub",
-  "isElementHighlightEnabled" : true,
-
+  "isElementHighlightEnabled": true,
   "driverSettings": {
     "chrome": {
       "webDriverVersion": "latest",
@@ -17,7 +16,12 @@
         "download.prompt_for_download": "false",
         "download.default_directory": "//home//selenium//downloads"
       },
-      "startArguments": ["--no-sandbox", "--disable-dev-shm-usage"]
+      "startArguments": [
+        "--disable-extensions",
+        "--disable-gpu",
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ]
     },
     "edge": {
       "webDriverVersion": "latest",
@@ -74,7 +78,11 @@
         "download.prompt_for_download": "false",
         "download.default_directory": "./downloads"
       },
-      "startArguments": ["--remote-debugging-port=9222", "--no-sandbox", "--disable-dev-shm-usage"]
+      "startArguments": [
+        "--remote-debugging-port=9222",
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ]
     },
     "safari": {
       "downloadDir": "/Users/username/Downloads"
@@ -96,10 +104,10 @@
     }
   },
   "timeouts": {
-    "timeoutImplicit" : 0,
-    "timeoutCondition" : 25,
-    "timeoutScript" : 10,
-    "timeoutPageLoad" : 60,
+    "timeoutImplicit": 0,
+    "timeoutCondition": 25,
+    "timeoutScript": 10,
+    "timeoutPageLoad": 60,
     "timeoutPollingInterval": 300,
     "timeoutCommand": 120
   },
