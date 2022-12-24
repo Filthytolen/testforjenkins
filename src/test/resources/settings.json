@@ -17,7 +17,7 @@
         "download.prompt_for_download": "false",
         "download.default_directory": "//home//selenium//downloads"
       },
-      "startArguments": []
+      "startArguments": ["--no-sandbox", "--disable-dev-shm-usage"]
     },
     "edge": {
       "webDriverVersion": "latest",
