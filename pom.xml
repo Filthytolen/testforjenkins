@@ -49,9 +49,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <environmentVariables>
-                        <browserName>${driverSettings.browserName}</browserName>
-                    </environmentVariables>
                 </configuration>
             </plugin>
         </plugins>
