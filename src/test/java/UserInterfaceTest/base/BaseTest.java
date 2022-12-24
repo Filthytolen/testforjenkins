@@ -7,6 +7,7 @@ import aquality.selenium.core.utilities.ISettingsFile;
 import aquality.selenium.core.utilities.JsonSettingsFile;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 public abstract class BaseTest {
     protected static final ISettingsFile DATA_TEST = new JsonSettingsFile("DataTest.json");
@@ -14,7 +15,7 @@ public abstract class BaseTest {
 
     private Browser browser = null;
 
-    @BeforeMethod
+    @BeforeTest
     public void setup() {
         getBrowser().maximize();
         getBrowser().waitForPageToLoad();
