@@ -17,7 +17,6 @@
         "download.default_directory": "//home//selenium//downloads"
       },
       "startArguments": [
-        "--headless",
         "--disable-extensions",
         "--disable-gpu",
         "--no-sandbox",
