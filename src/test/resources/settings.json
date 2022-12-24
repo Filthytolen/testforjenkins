@@ -1,5 +1,5 @@
 {
-  "browserName": "chrome",
+  "browserName": "firefox",
   "isRemote": false,
   "remoteConnectionUrl": "http://localhost:4444/wd/hub",
   "isElementHighlightEnabled": true,
@@ -16,11 +16,7 @@
         "download.prompt_for_download": "false",
         "download.default_directory": "//home//selenium//downloads"
       },
-      "startArguments": [
-        "--headless",
-        "window-size=1024,768",
-        "--no-sandbox"
-      ]
+      "startArguments": []
     },
     "edge": {
       "webDriverVersion": "latest",
