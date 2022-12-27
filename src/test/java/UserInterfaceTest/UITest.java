@@ -78,5 +78,5 @@ public class UITest extends BaseTest {
 
         Assert.assertEquals(cardsPage.getTimerValue(), DATA_TEST.getValue("/timer").toString(), "Timer was not started at 00");
     }
-//jenkins test
+//jenkins test another
 }
